@@ -106,15 +106,17 @@ Invoke-WebRequest https://chocolatey.org/install.ps1 -UseBasicParsing | iex
 UpdateEnvironmentPath
 
 choco feature enable -n allowGlobalConfirmation 
+choco feature enable -n useRememberedArgumentsForUpgrades
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # General
 choco install 7zip
 choco install authy-desktop
-#choco install autohotkey
+choco install autohotkey
 choco install bitwarden
 choco install chocolatey-font-helpers.extension
+#choco install chocolateygui --params "/DefaultToDarkMode"
 choco install docker-desktop
 choco install edgedeflector
 choco install ffmpeg
@@ -137,9 +139,11 @@ choco install postman
 choco install qbittorrent
 # RustDesk is like TeamViewer if TeamViewer wasn't buggy malware
 #choco install rustdesk
-choco install signal --params "/NoShortcut"
+choco install signal --params "/NoAutoUpdate /NoShortcut"
 choco install smplayer
 choco install veracrypt
+choco install virtualbox --params="/NoDesktopShortcut"
+choco install virtualbox-guest-additions-guest.install
 #choco install vlc
 #choco install vscode
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
