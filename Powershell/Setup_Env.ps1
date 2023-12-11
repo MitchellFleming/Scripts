@@ -118,20 +118,23 @@ choco install bitwarden
 choco install chocolatey-font-helpers.extension
 #choco install chocolateygui --params "/DefaultToDarkMode"
 choco install docker-desktop
-choco install edgedeflector
+#choco install edgedeflector
+choco install exoduswallet
 choco install ffmpeg
-choco install filezilla
+#choco install filezilla
 choco install gimp
-#choco install gpu-z
+choco install gpu-z
 choco install inkscape
 choco install jetbrainsmono
 choco install jetbrainstoolbox
+choco install joplin
 choco install mediainfo
 choco install microsoft-windows-terminal
 #choco install mkvtoolnix
 #choco install msiafterburner
 choco install notepadplusplus
 choco install nvm
+choco install obs-studio
 choco install picard
 choco install postman
 #choco install powershell-core
@@ -139,14 +142,24 @@ choco install postman
 choco install qbittorrent
 # RustDesk is like TeamViewer if TeamViewer wasn't buggy malware
 #choco install rustdesk
+# OSS alternative to Snagit
+choco install sharex
 choco install signal --params "/NoAutoUpdate /NoShortcut"
 choco install smplayer
+#choco install thunderbird --params "/NoTaskbarShortcut /NoDesktopShortcut /NoAutoUpdate"
 choco install veracrypt
-choco install virtualbox --params="/NoDesktopShortcut"
-choco install virtualbox-guest-additions-guest.install
-#choco install vlc
-#choco install vscode
+#Virtualbox installs using choco are extremely buggy when trying to upgrade, better off installing manually
+#choco install virtualbox --params="/NoDesktopShortcut"
+#choco install virtualbox-guest-additions-guest.install
+choco install visualstudio2022community
+choco install vlc
+choco install vscode
+choco install winscp
+#choco install yarn
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# .Net SDK Setup & Disable Telemetry
+choco install dotnet-sdk
+[System.Environment]::SetEnvironmentVariable('DOTNET_CLI_TELEMETRY_OPTOUT', '1', 'Machine')
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # WSL Dev Environment Setup
@@ -163,18 +176,21 @@ choco install wsl-ubuntu-2004
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Instal Git with Git and Unix tools added to PATH
-choco install git.install --params "/GitAndUnixToolsOnPath /NoAutoCrlf /WindowsTerminalProfile"
+choco install git.install --params "/GitAndUnixToolsOnPath /NoAutoCrlf /WindowsTerminalProfile /PseudoConsoleSupport"
 UpdateEnvironmentPath
 # Automatically create upstream branch for new locally created feature branches https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushautoSetupRemote
 git config --global push.autoSetupRemote true
 # Have Linux line endings in text files
-git config --global core.autocrlf input
+git config --global core.autocrlf true
 # Allow support for paths more than 260 characters on Windows
 git config --global core.longpaths true
-# Instal GitHub CLI
+# Install GitHub CLI
 choco install gh
 #choco install sourcetree
 UpdateEnvironmentPath
+
+# Install Azure Artifacts Credential Provider
+# iex "& { $(irm https://aka.ms/install-artifacts-credprovider.ps1) } -AddNetfx"
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
