@@ -181,7 +181,7 @@ UpdateEnvironmentPath
 # Automatically create upstream branch for new locally created feature branches https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushautoSetupRemote
 git config --global push.autoSetupRemote true
 # Have Linux line endings in text files
-git config --global core.autocrlf true
+git config --global core.autocrlf input
 # Allow support for paths more than 260 characters on Windows
 git config --global core.longpaths true
 # Install GitHub CLI
